@@ -6,7 +6,7 @@ import com.example.kotlin_bookapp.App
 import org.jetbrains.anko.db.*
 
 class ForecastDbHelper(ctx: Context = App.instance) :
-    ManagedSQLiteOpenHelper(ctx, ForecastDbHelper.DB_NAME, null, ForecastDbHelper.DB_VERSION) {
+    ManagedSQLiteOpenHelper(ctx, DB_NAME, null, DB_VERSION) {
 
     companion object {
         const val DB_NAME = "forecast.db"

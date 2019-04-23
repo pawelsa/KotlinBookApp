@@ -2,6 +2,7 @@ package com.example.kotlin_bookapp.data.server
 
 import com.example.kotlin_bookapp.data.db.ForecastDb
 import com.example.kotlin_bookapp.domain.datasource.ForecastDataSource
+import com.example.kotlin_bookapp.domain.model.Forecast
 import com.example.kotlin_bookapp.domain.model.ForecastList
 
 class ForecastServer(private val dataMapper:ServerDataMapper = ServerDataMapper(), private val forecastDb:ForecastDb = ForecastDb()) :ForecastDataSource {
@@ -13,4 +14,5 @@ class ForecastServer(private val dataMapper:ServerDataMapper = ServerDataMapper(
         return forecastDb.requestForecastByZipCode(zipCode, date)
     }
 
+    override fun requestDayForecast(id: Long): Forecast? = throw UnsupportedOperationException()
 }
