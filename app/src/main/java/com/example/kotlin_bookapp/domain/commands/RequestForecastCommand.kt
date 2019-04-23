@@ -1,14 +1,18 @@
 package com.example.kotlin_bookapp.domain.commands
 
-import com.example.kotlin_bookapp.ForecastRequest
-import com.example.kotlin_bookapp.domain.Command
-import com.example.kotlin_bookapp.domain.ForecastList
-import com.example.kotlin_bookapp.domain.mappers.ForecastDataMapper
+import com.example.kotlin_bookapp.domain.datasource.ForecastProvider
+import com.example.kotlin_bookapp.domain.model.ForecastList
 
-class RequestForecastCommand(private val zipCode : String) : Command<ForecastList> {
+class RequestForecastCommand(
+    private val zipCode: Long,
+    private val forecastProvider: ForecastProvider = ForecastProvider()
+) :
+    Command<ForecastList> {
 
-    override fun execute(): ForecastList {
-        val forecastRequest = ForecastRequest(zipCode)
-        return ForecastDataMapper().convertFromDataModel(forecastRequest.execute())
+    companion object {
+        const val DAYS = 7
     }
+
+    override fun execute(): ForecastList = forecastProvider.requestByZipCode(zipCode, DAYS)
+
 }

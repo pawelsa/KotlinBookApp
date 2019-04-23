@@ -1,13 +1,14 @@
 package com.example.kotlin_bookapp.domain.mappers
 
-import com.example.kotlin_bookapp.Forecast
-import com.example.kotlin_bookapp.ForecastResult
-import com.example.kotlin_bookapp.domain.ForecastList
+import com.example.kotlin_bookapp.data.server.Forecast
+import com.example.kotlin_bookapp.data.server.ForecastResult
+import com.example.kotlin_bookapp.domain.model.ForecastList
 import java.text.DateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
-import com.example.kotlin_bookapp.domain.Forecast as ModelForecast
+import com.example.kotlin_bookapp.domain.model.Forecast as ModelForecast
 
+/*
 class ForecastDataMapper {
 
     fun convertFromDataModel(forecastResult: ForecastResult): ForecastList =
@@ -38,4 +39,4 @@ class ForecastDataMapper {
         val df = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault())
         return df.format(date)
     }
-}
+}*/

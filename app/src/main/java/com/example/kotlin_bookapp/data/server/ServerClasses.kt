@@ -1,4 +1,4 @@
-package com.example.kotlin_bookapp
+package com.example.kotlin_bookapp.data.server
 
 data class ForecastResult(val city: City, val list: List<Forecast>)
 
