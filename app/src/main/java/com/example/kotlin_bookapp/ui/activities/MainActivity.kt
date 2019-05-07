@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), ToolbarManager {
         setContentView(R.layout.activity_main)
 
         initToolbar()
-        attatchToScroll(forecastList)
+        attachToScroll(forecastList)
 
         forecastList.layoutManager = LinearLayoutManager(this)
         doAsync {
