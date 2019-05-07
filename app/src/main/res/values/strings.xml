@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Kotlin-BookApp</string>
+    <string name="city_zipcode">City zip code</string>
+    <string name="settings">Settings</string>
 </resources>

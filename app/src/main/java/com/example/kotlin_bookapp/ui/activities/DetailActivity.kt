@@ -1,15 +1,15 @@
-package com.example.kotlin_bookapp
+package com.example.kotlin_bookapp.ui.activities
 
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.example.kotlin_bookapp.R
 import com.example.kotlin_bookapp.domain.commands.RequestDayForecastCommand
 import com.example.kotlin_bookapp.domain.model.Forecast
 import com.example.kotlin_bookapp.extensions.color
 import com.example.kotlin_bookapp.extensions.textColor
 import com.example.kotlin_bookapp.extensions.toDateString
-import com.example.kotlin_bookapp.ui.activities.ToolbarManager
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
 import org.jetbrains.anko.ctx
