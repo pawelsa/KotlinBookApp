@@ -37,7 +37,7 @@ interface ToolbarManager {
 
     fun createUpDrawable() = DrawerArrowDrawable(toolbar.context).apply { progress = 1f }
 
-    fun attatchToScroll(recyclerView: RecyclerView) {
+    fun attachToScroll(recyclerView: RecyclerView) {
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 if (dy > 0) toolbar.slideExit() else toolbar.slideEnter()

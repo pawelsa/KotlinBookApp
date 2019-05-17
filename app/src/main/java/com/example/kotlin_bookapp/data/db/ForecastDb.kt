@@ -2,10 +2,7 @@ package com.example.kotlin_bookapp.data.db
 
 import com.example.kotlin_bookapp.domain.datasource.ForecastDataSource
 import com.example.kotlin_bookapp.domain.model.ForecastList
-import com.example.kotlin_bookapp.extensions.byId
-import com.example.kotlin_bookapp.extensions.clear
-import com.example.kotlin_bookapp.extensions.parseOpt
-import com.example.kotlin_bookapp.extensions.toVarargArray
+import com.example.kotlin_bookapp.extensions.*
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 
@@ -16,10 +13,9 @@ class ForecastDb(
 
     override fun requestForecastByZipCode(zipCode: Long, date: Long) = forecastDbHelper.use {
 
-        val dailyRequest = "${DayForecastTable.CITY_ID} = {id} AND ${DayForecastTable.DATE} >={date}"
-
-        select(DayForecastTable.NAME)
-        val dailyForecast = whereArgs(dailyRequest, arrayOf<Pair<String, Any>>("id" to zipCode, "date" to date))
+        //val dailyRequest = "${DayForecastTable.CITY_ID} = {id} AND ${DayForecastTable.DATE} >={date}"
+        val dailyRequest = "${DayForecastTable.CITY_ID} = ? AND ${DayForecastTable.DATE} >= ?"
+        val dailyForecast = select(DayForecastTable.NAME).whereSimple(dailyRequest, zipCode.toString(), date.toString())
             .parseList { DayForecast(HashMap(it)) }
 
         val city = select(CityForecastTable.NAME)
