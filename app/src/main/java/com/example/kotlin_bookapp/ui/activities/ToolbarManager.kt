@@ -7,6 +7,7 @@ import com.example.kotlin_bookapp.App
 import com.example.kotlin_bookapp.R
 import com.example.kotlin_bookapp.extensions.slideEnter
 import com.example.kotlin_bookapp.extensions.slideExit
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 interface ToolbarManager {
@@ -23,7 +24,7 @@ interface ToolbarManager {
         toolbar.inflateMenu(R.menu.menu_main)
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.action_settings -> App.instance.toast("Settings")
+                R.id.action_settings -> toolbar.context.startActivity<SettingsActivity>()
                 else -> App.instance.toast("Unknown option")
             }
             true
