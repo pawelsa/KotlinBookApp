@@ -13,14 +13,8 @@ class ForecastDb(
 
     override fun requestForecastByZipCode(zipCode: Long, date: Long) = forecastDbHelper.use {
 
-<<<<<<< HEAD
-        //val dailyRequest = "${DayForecastTable.CITY_ID} = {id} AND ${DayForecastTable.DATE} >={date}"
         val dailyRequest = "${DayForecastTable.CITY_ID} = ? AND ${DayForecastTable.DATE} >= ?"
-=======
-        val dailyRequest = "${DayForecastTable.CITY_ID} = {id} AND ${DayForecastTable.DATE} >={date}"
 
-
->>>>>>> a9a2b2a9d08113a86332e6eb96975173446140fd
         val dailyForecast = select(DayForecastTable.NAME).whereSimple(dailyRequest, zipCode.toString(), date.toString())
             .parseList { DayForecast(HashMap(it)) }
 
